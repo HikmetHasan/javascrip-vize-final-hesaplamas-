@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vize Final notları</title>
+    <style>
+      body {
+        background-image: url(./pexels-lukas-574087.jpg);
+        background-size: cover;
+        color: rgb(0, 0, 0);
+        margin: 0;
+        padding: 0;
+      }
+      .new-bg {
+        background: rgba(255, 255, 255, 0.7);
+        min-height: 50vh;
+        width: 30%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        margin-left: 35rem;
+        margin-top: 5rem;
+        padding-left: 1rem;
+        padding: 0rem 4rem;
+      }
+      input,
+      button {
+        padding: 1rem 2rem;
+        border: none;
+        background: #333;
+        color: white;
+        font-size: 2rem;
+      }
+      #durum,
+      #ortalama,
+      #harfnotu {
+        display: flex;
+        align-items: center;
+      }
+      p {
+        font-size: 2rem;
+        margin-left: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="new-bg">
+      <br />
+      <br />
+      <form>
+        <input type="text" id="vize" placeholder="vize" /> <br />
+        <br />
+        <input type="text" id="final" placeholder="final" /> <br />
+        <br />
+        <button onclick="hesapla()">HESAPLA</button>
+      </form>
+      <div id="durum">
+        <h1>Ortalama:</h1>
+        <p id="sonuc1"></p>
+      </div>
+
+      <div id="ortalama">
+        <h1>Durum:</h1>
+        <p id="sonuc2"></p>
+      </div>
+      <div id="harfnotu">
+        <h1>Harf Notu:</h1>
+        <p id="sonuc3"></p>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function hesapla() {
+        event.preventDefault();
+
+        let vize = document.getElementById("vize").value;
+        let final = document.getElementById("final").value;
+
+        let sonuc = vize * 0.4 + final * 0.6;
+        document.getElementById("sonuc1").innerHTML = sonuc;
+
+        if (sonuc >= 50) {
+          document.getElementById("sonuc2").innerHTML = "Geçtiniz";
+          document.getElementById("sonuc2").style.color = "greenyellow";
+        } else if (sonuc <= 50) {
+          document.getElementById("sonuc2").style.color = "red";
+        }
+        if (sonuc >= 90 && sonuc <= 100) {
+          document.getElementById("sonuc2").innerHTML = "Geçtiniz";
+          document.getElementById("sonuc2").style.color = "greenyellow";
+
+          document.getElementById("sonuc3").innerHTML = "AA  ";
+          document.getElementById("sonuc2").innerHTML = "Geçtiniz";
+          document.getElementById("sonuc2").style.color = "greenyellow";
+        } else if (sonuc >= 80 && sonuc >= 60) {
+          document.getElementById("sonuc3").innerHTML = "BB  ";
+          document.getElementById("sonuc2").innerHTML = "Geçtiniz";
+          document.getElementById("sonuc2").style.color = "greenyellow";
+        } else if (sonuc >= 50) {
+          document.getElementById("sonuc3").innerHTML = "CC  ";
+          document.getElementById("sonuc2").innerHTML = "Geçtiniz";
+          document.getElementById("sonuc2").style.color = "greenyellow";
+        } else if (sonuc <= 50) {
+          document.getElementById("sonuc3").innerHTML = "FF  ";
+          document.getElementById("sonuc2").style.color = "red";
+          document.getElementById("sonuc2").innerHTML = "Kaldınız";
+        }
+        if (sonuc >= 101) {
+          document.getElementById("sonuc2").innerHTML = "HATA";
+          document.getElementById("sonuc2").style.color = "red";
+          document.getElementById("sonuc3").style.color = "red";
+          document.getElementById("sonuc1").style.color = "red";
+          document.getElementById("sonuc1").innerHTML = "HATA";
+          document.getElementById("sonuc3").innerHTML = "HATA  ";
+        }
+      }
+    </script>
+  </body>
+</html>
